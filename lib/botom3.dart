@@ -8,7 +8,7 @@ class BottomNavBar3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRect(
-      // ClipRect to ensure the blur effect is contained
+      // ClipRect to ensure tsshe blur effect is contained
       child: BackdropFilter(
         filter: ImageFilter.blur(
             sigmaX: 5.0, sigmaY: 5.0), // Adjust blur intensity here
