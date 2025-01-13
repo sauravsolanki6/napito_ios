@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CADisableMinimumFrameDurationOnPhone</key>
+    <true/>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleDisplayName</key>
+    <string>Napito</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Napito</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0.4</string>
+    <key>CFBundleVersion</key>
+    <string>2</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UIMainStoryboardFile</key>
+    <string>Main</string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- Added keys for sensitive data access -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Napito needs access to your photo library to allow you to select and upload photos for your profile or appointments.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Napito needs access to your camera to capture photos or videos for your profile or during appointments.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Napito requires your location to show nearby stylists and provide personalized services.</string>
+
+    <!-- Added keys for local notifications -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
+
+    <!-- Google Maps API Key -->
+    <key>GMSApiKey</key>
+    <string>AIzaSyD0bCf1pahB_iSu7K1PJTHyAfM4CAzjyfM</string>
+
+    <!-- Location permissions for Google Maps -->
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location for better service and to show nearby locations on the map.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to show nearby stylists and services on the map.</string>
+
+    <!-- Deep Linking Configuration -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>https</string>
+            </array>
+            <key>CFBundleURLHost</key>
+            <string>play.google.com</string>
+            <key>CFBundleURLPath</key>
+            <string>/store/apps/details?id=com.quick.napito2</string>
+        </dict>
+    </array>
+
+    <!-- Universal Link Configuration -->
+    <key>com.apple.developer.associated-domains</key>
+    <array>
+        <string>applinks:yourwebsite.com</string> <!-- Update with your actual domain -->
+    </array>
+
+    <!-- SMS Permission (No equivalent for receiving/sending SMS directly in iOS) -->
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Napito needs access to your microphone for voice features during appointments.</string>
+
+    <!-- Background fetch and Push Notifications Configuration (Required for SMS-like functionalities) -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
+
+</dict>
+</plist>

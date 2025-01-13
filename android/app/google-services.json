@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "692927470119",
+    "project_id": "napito-8c168",
+    "storage_bucket": "napito-8c168.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692927470119:android:910b5dd7f921336bff8c02",
+        "android_client_info": {
+          "package_name": "com.quick.napito2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsJEh7woXcVW6TMAVlfv0NsbD8sqlWXsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692927470119:android:9cb9640754b49235ff8c02",
+        "android_client_info": {
+          "package_name": "com.quick.napito"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsJEh7woXcVW6TMAVlfv0NsbD8sqlWXsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
