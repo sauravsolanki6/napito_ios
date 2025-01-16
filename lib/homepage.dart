@@ -631,9 +631,10 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _loadName() async {
     final prefs = await SharedPreferences.getInstance();
-    final name = prefs.getString('full_name') ?? 'Default Store Name';
+    final fullName = prefs.getString('full_name') ?? 'Default Store Name';
+    final firstName = fullName.split(' ').first;
     setState(() {
-      _name = name;
+      _name = firstName;
     });
   }
 
@@ -1976,6 +1977,20 @@ Widget _buildHealthContainer(
             child: Image.network(
               gifPath,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Center(
+                  child: Text(
+                    'No Image Available',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.lato(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      height: 1.2,
+                      color: Colors.white,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ),
@@ -1995,7 +2010,6 @@ Widget _buildHealthContainer(
             text,
             textAlign: TextAlign.center,
             style: GoogleFonts.lato(
-              // Use Google Fonts Lato here
               fontSize: 26,
               fontWeight: FontWeight.w700,
               height: 1.2,

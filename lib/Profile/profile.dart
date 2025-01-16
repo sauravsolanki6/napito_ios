@@ -317,7 +317,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           );
 
-          return false; // Prevent the default back navigation
+          return false;
         },
         child: Scaffold(
           backgroundColor: CustomColors.backgroundPrimary,
@@ -419,10 +419,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                           },
                                           errorBuilder:
                                               (context, error, stackTrace) {
-                                            // In case of error (image fails to load), show the image icon
                                             return const Center(
                                               child: Icon(
-                                                Icons.image,
+                                                Icons.account_circle,
                                                 size: 50,
                                                 color: Colors.black,
                                               ),
@@ -431,7 +430,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         )
                                       : const Center(
                                           child: Icon(
-                                            Icons.hide_image_outlined,
+                                            Icons.account_circle,
                                             size: 50,
                                             color: Colors.black,
                                           ),

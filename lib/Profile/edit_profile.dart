@@ -223,11 +223,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
                 Positioned(
-                  top: 40,
-                  left: 150,
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: MediaQuery.of(context).size.width * 0.35,
                   child: Container(
-                    width: 112,
-                    height: 112,
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.width * 0.3,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
@@ -241,16 +241,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ? Image.network(
                               profilePicUrl,
                               fit: BoxFit.cover,
-                              cacheWidth: 183, // Adjust to the desired width
-                              cacheHeight: 183, // Adjust to the desired height
+                              cacheWidth: 183,
+                              cacheHeight: 183,
+                              loadingBuilder: (BuildContext context,
+                                  Widget child,
+                                  ImageChunkEvent? loadingProgress) {
+                                if (loadingProgress == null) {
+                                  return child;
+                                } else {
+                                  return Icon(
+                                    Icons.account_circle,
+                                    size:
+                                        MediaQuery.of(context).size.width * 0.3,
+                                    color: Colors.grey,
+                                  );
+                                }
+                              },
+                              errorBuilder: (context, error, stackTrace) {
+                                return Icon(
+                                  Icons.account_circle,
+                                  size: MediaQuery.of(context).size.width * 0.3,
+                                  color: Colors.grey,
+                                );
+                              },
                             )
-                          : Container(),
+                          : Icon(
+                              Icons.account_circle,
+                              size: MediaQuery.of(context).size.width * 0.3,
+                              color: Colors.grey,
+                            ),
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 160,
-                  left: 137,
+                  top: MediaQuery.of(context).size.height * 0.2,
+                  left: MediaQuery.of(context).size.width * 0.31,
                   child: Container(
                     width: 138,
                     height: 28,
@@ -270,7 +295,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
                 Positioned(
-                  top: 220,
+                  top: 200,
                   left: 29,
                   child: Container(
                     width: 372.01,
@@ -286,7 +311,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
                 Positioned(
-                  top: 250,
+                  top: 220,
                   left: 47,
                   right: 47,
                   child: Column(

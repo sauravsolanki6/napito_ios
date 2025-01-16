@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:ms_salon_task/Colors/custom_colors.dart';
 import 'package:ms_salon_task/SignUp/SignUpPage.dart';
@@ -560,18 +562,144 @@ class _SignUp2PageState extends State<SignUp2Page> {
   }
 
   Future<void> _selectDate(
-      BuildContext context, TextEditingController? controller) async {
-    final DateTime? picked = await showDatePicker(
+    BuildContext context,
+    TextEditingController? controller,
+  ) async {
+    DateTime selectedDate = DateTime.now();
+
+    showModalBottomSheet(
       context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime(2101),
+      builder: (BuildContext context) {
+        return SingleChildScrollView(
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+            ),
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  'Select Date',
+                  style: GoogleFonts.lato(
+                    color: CustomColors.backgroundtext, // Set text color
+                    fontSize: 20, // Set font size
+                    fontWeight: FontWeight.bold, // Bold text
+                  ),
+                ),
+                Divider(),
+                // SizedBox(height: 10),
+                SizedBox(
+                  height: 150, // Adjust this height if needed
+                  child: CupertinoDatePicker(
+                    initialDateTime: selectedDate,
+                    minimumYear: 1800,
+                    maximumYear: 3000,
+                    onDateTimeChanged: (DateTime newDate) {
+                      selectedDate = newDate;
+                    },
+                    mode: CupertinoDatePickerMode.date,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [
+                              CustomColors.backgroundtext,
+                              Colors.purple
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 6.0,
+                              spreadRadius: 1.0,
+                              offset: Offset(2.0, 2.0), // Shadow position
+                            ),
+                          ],
+                        ),
+                        child: CupertinoButton(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 14), // Add vertical padding
+                          borderRadius:
+                              BorderRadius.circular(12), // Rounded corners
+                          child: Text(
+                            'Select',
+                            style: GoogleFonts.lato(
+                              color: Colors.white, // Set text color to white
+                              fontSize: 18, // Set font size
+                              fontWeight: FontWeight.bold, // Bold text
+                            ),
+                          ),
+                          onPressed: () {
+                            String formattedDate =
+                                DateFormat('dd-MM-yyyy').format(selectedDate);
+                            if (controller != null) {
+                              controller!.text = formattedDate;
+                            }
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Colors.redAccent, Colors.red],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 6.0,
+                              spreadRadius: 1.0,
+                              offset: Offset(2.0, 2.0), // Shadow position
+                            ),
+                          ],
+                        ),
+                        child: CupertinoButton(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 14), // Add vertical padding
+                          borderRadius:
+                              BorderRadius.circular(12), // Rounded corners
+                          child: Text(
+                            'Cancel',
+                            style: GoogleFonts.lato(
+                              color: Colors.white, // Set text color to white
+                              fontSize: 18, // Set font size
+                              fontWeight: FontWeight.bold, // Bold text
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
-    if (picked != null && controller != null) {
-      String formattedDate = DateFormat('dd-MM-yyyy').format(picked);
-      setState(() {
-        controller.text = formattedDate;
-      });
-    }
   }
 }
+  //add
